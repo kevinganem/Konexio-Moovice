@@ -10,8 +10,6 @@ import Popular from "./pages/Popular";
 import PopularBattle from "./pages/PopularBattle";
 import Favorites from "./pages/Favorites";
 import NotFound from "./pages/NotFound";
-// COMPONENTS
-import Card from "./components/Card";
 // BOOTSTRAP
 import "bootstrap/dist/css/bootstrap.min.css";
 

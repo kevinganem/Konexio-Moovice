@@ -6,10 +6,10 @@ class Card extends React.Component {
     return (
       <>
         <div className="p-2">
-          <div className="card" style={{ width: "18rem" }}>
+          <div className="card shadow" style={{ width: "18rem" }}>
             <img
               src={`https://image.tmdb.org/t/p/w300${this.props.movieSelected.poster_path}`}
-              className="card-img-top"
+              className="card-img-top shadow"
               alt="Poster"
             />
             <div className="card-body">
