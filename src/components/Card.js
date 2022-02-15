@@ -6,10 +6,6 @@ class Card extends React.Component {
     return (
       <>
         <div className="p-2">
-          {/* <button
-            onClick={() => this.props.handleClick(this.props.movieSelected.id)}
-            className="col-3"
-          > */}
           <div className="card" style={{ width: "18rem" }}>
             <img
               src={`https://image.tmdb.org/t/p/w300${this.props.movieSelected.poster_path}`}
@@ -31,7 +27,6 @@ class Card extends React.Component {
               </li>
             </ul>
           </div>
-          {/* </button> */}
         </div>
       </>
     );
