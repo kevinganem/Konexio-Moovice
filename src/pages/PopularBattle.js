@@ -9,20 +9,23 @@ class PopularBattle extends React.Component {
 
     this.state = {
       movies: [],
+      pages: 0,
       currentBattle: 0,
       favorites: JSON.parse(localStorage.getItem("favorites")) || [],
+      isLoading: true,
     };
   }
 
   handleBattle = (id) => {
     this.setState({
+      currentBattle: this.state.currentBattle + 2,
       favorites: [...this.state.favorites, id],
     });
     localStorage.setItem(
       "favorites",
       JSON.stringify([...this.state.favorites, id])
     );
-    console.log(localStorage);
+    console.log(this.state.favorites);
   };
 
   componentDidMount() {
@@ -32,26 +35,39 @@ class PopularBattle extends React.Component {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        this.setState({ movies: res.results });
+        this.setState({
+          movies: res.results,
+          pages: res.page,
+          isLoading: false,
+        });
       });
   }
   render() {
-    const { movies, currentBattle } = this.state;
+    const { isLoading, movies, currentBattle, pages } = this.state;
+
     return (
       <>
-        <h1>PopularBattle</h1>
-        <div className="">
-          <Card
-            handleClick={this.handleBattle}
-            movieSelected={movies[currentBattle]}
-            key={movies.id}
-          />
-          <Card
-            handleClick={this.handleBattle}
-            movieSelected={movies[currentBattle + 1]}
-            key={movies.id}
-          />
-        </div>
+        <h1 className="text-center">PopularBattle</h1>
+        {isLoading && (
+          <div className="spinner-border text-primary" role="status" />
+        )}
+        {movies.length > 0 && currentBattle < movies.length - 1 && (
+          <div className="d-flex justify-content-evenly flex-wrap">
+            <Card
+              handleClick={this.handleBattle}
+              movieSelected={movies[currentBattle]}
+              key={movies.id}
+            />
+            <Card
+              handleClick={this.handleBattle}
+              movieSelected={movies[currentBattle + 1]}
+              key={movies.id}
+            />
+          </div>
+        )}
+        {currentBattle >= movies.length - 1 && (
+          <h1 className="text-center">Vous avez parcouru tous les films !</h1>
+        )}
       </>
     );
   }

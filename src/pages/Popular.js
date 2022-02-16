@@ -9,6 +9,7 @@ class Popular extends React.Component {
 
     this.state = {
       movies: [],
+      pages: 0,
     };
   }
 
@@ -19,7 +20,7 @@ class Popular extends React.Component {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        this.setState({ movies: res.results });
+        this.setState({ movies: res.results, pages: res.page });
       });
   }
 
