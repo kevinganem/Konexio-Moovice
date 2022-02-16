@@ -10,8 +10,20 @@ class PopularBattle extends React.Component {
     this.state = {
       movies: [],
       currentBattle: 0,
+      favorites: JSON.parse(localStorage.getItem("favorites")) || [],
     };
   }
+
+  handleBattle = (id) => {
+    this.setState({
+      favorites: [...this.state.favorites, id],
+    });
+    localStorage.setItem(
+      "favorites",
+      JSON.stringify([...this.state.favorites, id])
+    );
+    console.log(localStorage);
+  };
 
   componentDidMount() {
     fetch(
@@ -24,13 +36,20 @@ class PopularBattle extends React.Component {
       });
   }
   render() {
+    const { movies, currentBattle } = this.state;
     return (
       <>
         <h1>PopularBattle</h1>
         <div className="">
-          <Card movieSelected={this.state.movies[this.state.currentBattle]} />
           <Card
-            movieSelected={this.state.movies[this.state.currentBattle + 1]}
+            handleClick={this.handleBattle}
+            movieSelected={movies[currentBattle]}
+            key={movies.id}
+          />
+          <Card
+            handleClick={this.handleBattle}
+            movieSelected={movies[currentBattle + 1]}
+            key={movies.id}
           />
         </div>
       </>
