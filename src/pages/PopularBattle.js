@@ -37,13 +37,12 @@ class PopularBattle extends React.Component {
         console.log(res);
         this.setState({
           movies: res.results,
-          pages: res.page,
           isLoading: false,
         });
       });
   }
   render() {
-    const { isLoading, movies, currentBattle, pages } = this.state;
+    const { isLoading, movies, currentBattle } = this.state;
 
     return (
       <>
