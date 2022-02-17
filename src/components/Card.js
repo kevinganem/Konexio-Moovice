@@ -8,16 +8,15 @@ class Card extends React.Component {
       <>
         <div className="p-2">
           <div className="card shadow" style={{ width: "18rem" }}>
-            <button onClick={() => handleClick(movieSelected.id)}>
-              <img
-                src={
-                  "https://image.tmdb.org/t/p/w300/" + movieSelected.poster_path
-                }
-                className="card-img-top shadow"
-                alt="Poster"
-                style={{ height: "20rem" }}
-              />
-            </button>
+            <img
+              onClick={() => handleClick(movieSelected.id)}
+              src={
+                "https://image.tmdb.org/t/p/w300/" + movieSelected.poster_path
+              }
+              className="card-img-top shadow"
+              alt="Poster"
+              style={{ height: "20rem" }}
+            />
             <div className="card-body">
               <h5 className="card-title">{movieSelected.title}</h5>
               <p
