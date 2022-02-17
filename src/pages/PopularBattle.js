@@ -2,6 +2,8 @@
 import React from "react";
 // COMPONENT
 import Card from "../components/Card";
+// IMG
+import vs from "../img/vs.png";
 
 class PopularBattle extends React.Component {
   constructor() {
@@ -51,11 +53,16 @@ class PopularBattle extends React.Component {
           <div className="spinner-border text-primary" role="status" />
         )}
         {movies.length > 0 && currentBattle < movies.length - 1 && (
-          <div className="d-flex justify-content-evenly flex-wrap">
+          <div className="d-flex justify-content-evenly flex-wrap align-items-center">
             <Card
               handleClick={this.handleBattle}
               movieSelected={movies[currentBattle]}
               key={movies.id}
+            />
+            <img
+              src={vs}
+              alt="vs"
+              style={{ width: "10rem", height: "10rem" }}
             />
             <Card
               handleClick={this.handleBattle}
