@@ -15,6 +15,7 @@ class Card extends React.Component {
                 }
                 className="card-img-top shadow"
                 alt="Poster"
+                style={{ height: "20rem" }}
               />
             </button>
             <div className="card-body">
