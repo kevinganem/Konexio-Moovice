@@ -29,7 +29,8 @@ class Favorites extends React.Component {
   }
 
   componentDidMount() {
-    this.state.favIDs.forEach((movie) => this.getMovie(movie));
+    const uniqueFav = Array.from(new Set(this.state.favIDs));
+    uniqueFav.forEach((movie) => this.getMovie(movie));
   }
 
   getStorage() {

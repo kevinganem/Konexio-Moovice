@@ -17,23 +17,23 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <nav>
-          <Link className="p-2" to="/">
+        <nav className="nav justify-content-center p-3 fs-3">
+          <Link className="p-2 nav-item nav-link" to="/">
             Home
           </Link>
-          <Link className="p-2" to="/weekly">
+          <Link className="p-2 nav-item nav-link" to="/weekly">
             Weekly
           </Link>
-          <Link className="p-2" to="/weekly-battle">
+          <Link className="p-2 nav-item nav-link" to="/weekly-battle">
             WeeklyBattle
           </Link>
-          <Link className="p-2" to="/popular">
+          <Link className="p-2 nav-item nav-link" to="/popular">
             Popular
           </Link>
-          <Link className="p-2" to="/popular-battle">
+          <Link className="p-2 nav-item nav-link" to="/popular-battle">
             PopularBattle
           </Link>
-          <Link className="p-2" to="/favorites">
+          <Link className="p-2 nav-item nav-link" to="/favorites">
             Favorites
           </Link>
         </nav>
